@@ -1,0 +1,20 @@
+from scipy.stats import ttest_1samp
+import numpy as np
+ages = np.genfromtxt('ages.csv')
+print(ages)
+ages_mean = np.mean(ages)
+print(ages_mean)
+tset, pval = ttest_1samp(ages, 30)
+print('p-values - ',pval)
+if pval< 0.05:
+    print(" we are rejecting null hypothesis")
+else:
+    print("we are accepting null hypothesis")
+
+
+output:
+[34. 32. 24. 45.  5.  5. 64. 64.  4. 46. 65. 65. 76.  7. 34. 66. 67. 34.
+ 56. 76.  5.]
+41.61904761904762
+p-values -  0.05094336031663193
+we are accepting null hypothesis
